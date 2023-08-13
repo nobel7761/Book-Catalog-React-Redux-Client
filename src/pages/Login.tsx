@@ -17,6 +17,7 @@ import { Checkbox } from "../components/shadcn/ui/checkbox";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { loginUser } from "../redux/features/user/userSlice";
 import { useEffect } from "react";
+import LoadingIcon from "../components/shared/LoadingIcon";
 
 interface Inputs {
   email: string;
@@ -107,8 +108,12 @@ const Login = () => {
                 </Link>
               </div>
 
-              <Button type="submit" className="bg-[#2563EB] w-full">
-                Sign in to your account
+              <Button
+                type="submit"
+                className="bg-[#2563EB] w-full flex items-center gap-x-3"
+              >
+                {isLoading ? <LoadingIcon /> : null}
+                Log in to your account
               </Button>
             </form>
 
