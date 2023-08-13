@@ -1,0 +1,474 @@
+[
+  {
+    "title": "The Mystery of the Hidden Key",
+    "author": "Jessica Parker",
+    "genre": "Mystery",
+    "publication_date": "2022-03-15",
+    "reviews": [
+      { "user": "reader123", "rating": 4, "comment": "Exciting plot twists!" },
+      {
+        "user": "booklover456",
+        "rating": 5,
+        "comment": "Couldn't put it down."
+      },
+      {
+        "user": "mysteryfanatic",
+        "rating": 4,
+        "comment": "Keeps you guessing till the end."
+      }
+    ],
+    "image_link": "https://example.com/book1.jpg"
+  },
+  {
+    "title": "Echoes of Eternity",
+    "author": "Michael Anderson",
+    "genre": "Fantasy",
+    "publication_date": "2021-08-02",
+    "reviews": [
+      {
+        "user": "fantasylover22",
+        "rating": 5,
+        "comment": "Imaginative world-building."
+      },
+      {
+        "user": "adventureseeker",
+        "rating": 4,
+        "comment": "Epic journey that captivates."
+      },
+      {
+        "user": "magicenthusiast",
+        "rating": 5,
+        "comment": "Spells and sorcery done right."
+      }
+    ],
+    "image_link": "https://example.com/book2.jpg"
+  },
+  {
+    "title": "Love in Bloom",
+    "author": "Emily Roberts",
+    "genre": "Romance",
+    "publication_date": "2023-02-14",
+    "reviews": [
+      {
+        "user": "romanticatheart",
+        "rating": 5,
+        "comment": "Swoon-worthy romance."
+      },
+      {
+        "user": "bookishcupid",
+        "rating": 4,
+        "comment": "A feel-good love story."
+      },
+      {
+        "user": "heartstrings",
+        "rating": 5,
+        "comment": "Touched my emotions deeply."
+      }
+    ],
+    "image_link": "https://example.com/book3.jpg"
+  },
+  {
+    "title": "The Last Frontier",
+    "author": "David Thompson",
+    "genre": "Science Fiction",
+    "publication_date": "2022-09-20",
+    "reviews": [
+      {
+        "user": "scifigeek",
+        "rating": 5,
+        "comment": "Intriguing concepts of space exploration."
+      },
+      {
+        "user": "outerspacetraveler",
+        "rating": 4,
+        "comment": "Thought-provoking and well-paced."
+      },
+      {
+        "user": "futurebound",
+        "rating": 4,
+        "comment": "An adventure beyond the stars."
+      }
+    ],
+    "image_link": "https://example.com/book4.jpg"
+  },
+  {
+    "title": "Beyond the Horizon",
+    "author": "Sarah Walker",
+    "genre": "Adventure",
+    "publication_date": "2023-04-10",
+    "reviews": [
+      {
+        "user": "adventureenthusiast",
+        "rating": 5,
+        "comment": "Thrilling escapades at every turn."
+      },
+      {
+        "user": "explorer123",
+        "rating": 4,
+        "comment": "Makes me want to travel the world."
+      },
+      {
+        "user": "daringreader",
+        "rating": 5,
+        "comment": "A journey that ignites the soul."
+      }
+    ],
+    "image_link": "https://example.com/book5.jpg"
+  },
+  {
+    "title": "Whispers in the Dark",
+    "author": "Jennifer Smith",
+    "genre": "Horror",
+    "publication_date": "2021-10-31",
+    "reviews": [
+      {
+        "user": "horroraddict",
+        "rating": 5,
+        "comment": "Chilling and spine-tingling."
+      },
+      {
+        "user": "nightmareseeker",
+        "rating": 4,
+        "comment": "Kept me up all night."
+      },
+      {
+        "user": "braveheart",
+        "rating": 3,
+        "comment": "A haunting tale of fear."
+      }
+    ],
+    "image_link": "https://example.com/book6.jpg"
+  },
+  {
+    "title": "A Song of Destiny",
+    "author": "Robert Martin",
+    "genre": "Historical Fiction",
+    "publication_date": "2022-05-12",
+    "reviews": [
+      {
+        "user": "historylover",
+        "rating": 5,
+        "comment": "Brings the past to life."
+      },
+      {
+        "user": "historicaldreamer",
+        "rating": 4,
+        "comment": "Immersive and well-researched."
+      },
+      {
+        "user": "timevoyager",
+        "rating": 5,
+        "comment": "A symphony of history and imagination."
+      }
+    ],
+    "image_link": "https://example.com/book7.jpg"
+  },
+  {
+    "title": "The Enchanted Forest",
+    "author": "Lily Green",
+    "genre": "Children's",
+    "publication_date": "2023-01-05",
+    "reviews": [
+      {
+        "user": "storybookfan",
+        "rating": 5,
+        "comment": "Magical and heartwarming."
+      },
+      {
+        "user": "kidreader",
+        "rating": 4,
+        "comment": "A delightful adventure for young minds."
+      },
+      {
+        "user": "imaginationwonder",
+        "rating": 5,
+        "comment": "Captivated my child's imagination."
+      }
+    ],
+    "image_link": "https://example.com/book8.jpg"
+  },
+  {
+    "title": "The Art of Cooking",
+    "author": "Julia Roberts",
+    "genre": "Cooking",
+    "publication_date": "2021-06-18",
+    "reviews": [
+      {
+        "user": "foodlover",
+        "rating": 5,
+        "comment": "Delicious recipes with clear instructions."
+      },
+      {
+        "user": "chefatheart",
+        "rating": 4,
+        "comment": "A culinary journey to savor."
+      },
+      {
+        "user": "kitchenexplorer",
+        "rating": 5,
+        "comment": "Elevated my cooking skills."
+      }
+    ],
+    "image_link": "https://example.com/book9.jpg"
+  },
+  {
+    "title": "The Power of Mindfulness",
+    "author": "Megan Davis",
+    "genre": "Self-Help",
+    "publication_date": "2022-07-29",
+    "reviews": [
+      {
+        "user": "mindfulreader",
+        "rating": 5,
+        "comment": "Life-changing insights."
+      },
+      {
+        "user": "selfcareenthusiast",
+        "rating": 4,
+        "comment": "Practical guide to inner peace."
+      },
+      {
+        "user": "balanceseeker",
+        "rating": 5,
+        "comment": "A journey to a calmer self."
+      }
+    ],
+    "image_link": "https://example.com/book10.jpg"
+  },
+  {
+    "title": "Galactic Explorers",
+    "author": "Samuel Johnson",
+    "genre": "Sci-Fi",
+    "publication_date": "2023-06-05",
+    "reviews": [
+      { "user": "scifiaddict", "rating": 5, "comment": "Epic space odyssey." },
+      {
+        "user": "cosmicdreamer",
+        "rating": 4,
+        "comment": "Mind-bending concepts of the universe."
+      },
+      {
+        "user": "adventuresinspace",
+        "rating": 5,
+        "comment": "To infinity and beyond!"
+      }
+    ],
+    "image_link": "https://example.com/book11.jpg"
+  },
+  {
+    "title": "Heartstrings",
+    "author": "Sophie Williams",
+    "genre": "Poetry",
+    "publication_date": "2021-04-12",
+    "reviews": [
+      {
+        "user": "poetrylover",
+        "rating": 5,
+        "comment": "Emotional and beautifully written."
+      },
+      {
+        "user": "wordsmith",
+        "rating": 4,
+        "comment": "Touches the soul with every verse."
+      },
+      {
+        "user": "expressiveheart",
+        "rating": 5,
+        "comment": "A tapestry of feelings and words."
+      }
+    ],
+    "image_link": "https://example.com/book12.jpg"
+  },
+  {
+    "title": "City of Shadows",
+    "author": "Alex Turner",
+    "genre": "Thriller",
+    "publication_date": "2022-11-18",
+    "reviews": [
+      {
+        "user": "thrillerenthusiast",
+        "rating": 5,
+        "comment": "Keeps you on the edge of your seat."
+      },
+      {
+        "user": "suspenseaddict",
+        "rating": 4,
+        "comment": "Twists and turns that surprise."
+      },
+      {
+        "user": "page-turner",
+        "rating": 5,
+        "comment": "An adrenaline-pumping ride."
+      }
+    ],
+    "image_link": "https://example.com/book13.jpg"
+  },
+  {
+    "title": "Garden of Serenity",
+    "author": "Emma Collins",
+    "genre": "Nature",
+    "publication_date": "2023-03-22",
+    "reviews": [
+      {
+        "user": "naturelover",
+        "rating": 5,
+        "comment": "A peaceful escape into nature."
+      },
+      {
+        "user": "greenthumb",
+        "rating": 4,
+        "comment": "Inspiring and tranquil."
+      },
+      {
+        "user": "serenereader",
+        "rating": 5,
+        "comment": "Refreshes the spirit like a walk in the garden."
+      }
+    ],
+    "image_link": "https://example.com/book14.jpg"
+  },
+  {
+    "title": "Dreamcatcher",
+    "author": "Oliver Mitchell",
+    "genre": "Fantasy",
+    "publication_date": "2022-12-10",
+    "reviews": [
+      {
+        "user": "fantasyadventurer",
+        "rating": 5,
+        "comment": "A realm of dreams and magic."
+      },
+      {
+        "user": "dreamweaver",
+        "rating": 4,
+        "comment": "Unforgettable characters and quests."
+      },
+      {
+        "user": "fantasyreader",
+        "rating": 5,
+        "comment": "A captivating journey beyond reality."
+      }
+    ],
+    "image_link": "https://example.com/book15.jpg"
+  },
+  {
+    "title": "Culinary Adventures",
+    "author": "Sophia Miller",
+    "genre": "Cooking",
+    "publication_date": "2023-07-14",
+    "reviews": [
+      {
+        "user": "foodexplorer",
+        "rating": 5,
+        "comment": "Delicious exploration of flavors."
+      },
+      {
+        "user": "culinaryartist",
+        "rating": 4,
+        "comment": "A cookbook that inspires creativity."
+      },
+      {
+        "user": "tastebuds",
+        "rating": 5,
+        "comment": "Elevates everyday cooking to an art."
+      }
+    ],
+    "image_link": "https://example.com/book16.jpg"
+  },
+  {
+    "title": "Eternal Bonds",
+    "author": "Isabella Walker",
+    "genre": "Romance",
+    "publication_date": "2021-09-09",
+    "reviews": [
+      {
+        "user": "hopelessromantic",
+        "rating": 5,
+        "comment": "Tugs at the heartstrings."
+      },
+      {
+        "user": "loveconnoisseur",
+        "rating": 4,
+        "comment": "A tale of love that endures."
+      },
+      {
+        "user": "romancereader",
+        "rating": 5,
+        "comment": "Passion and devotion beautifully portrayed."
+      }
+    ],
+    "image_link": "https://example.com/book17.jpg"
+  },
+  {
+    "title": "In the Footsteps of Giants",
+    "author": "Jonathan Turner",
+    "genre": "History",
+    "publication_date": "2022-04-25",
+    "reviews": [
+      {
+        "user": "historybuff",
+        "rating": 5,
+        "comment": "An immersive journey through time."
+      },
+      {
+        "user": "timelesswanderer",
+        "rating": 4,
+        "comment": "Traces the paths of historical figures."
+      },
+      {
+        "user": "pastexplorer",
+        "rating": 5,
+        "comment": "A walk through history's corridors."
+      }
+    ],
+    "image_link": "https://example.com/book18.jpg"
+  },
+  {
+    "title": "Beyond the Stars",
+    "author": "Grace Thompson",
+    "genre": "Science Fiction",
+    "publication_date": "2023-05-30",
+    "reviews": [
+      {
+        "user": "scififanatic",
+        "rating": 5,
+        "comment": "A stellar journey across the cosmos."
+      },
+      {
+        "user": "spaceenthusiast",
+        "rating": 4,
+        "comment": "Fascinating concepts of space-time."
+      },
+      {
+        "user": "intergalacticreader",
+        "rating": 5,
+        "comment": "Expands the horizons of imagination."
+      }
+    ],
+    "image_link": "https://example.com/book19.jpg"
+  },
+  {
+    "title": "A Whisper in the Wind",
+    "author": "Ella Mitchell",
+    "genre": "Drama",
+    "publication_date": "2022-10-15",
+    "reviews": [
+      {
+        "user": "dramalover",
+        "rating": 5,
+        "comment": "A tale of emotions and secrets."
+      },
+      {
+        "user": "heartfeltreader",
+        "rating": 4,
+        "comment": "Touches the heart in unexpected ways."
+      },
+      {
+        "user": "intensedrama",
+        "rating": 5,
+        "comment": "A poignant exploration of life's twists."
+      }
+    ],
+    "image_link": "https://example.com/book20.jpg"
+  }
+]
