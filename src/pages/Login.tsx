@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/shadcn/ui/button";
 import {
   Card,
@@ -14,6 +14,9 @@ import { Label } from "../components/shadcn/ui/label";
 import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Checkbox } from "../components/shadcn/ui/checkbox";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { loginUser } from "../redux/features/user/userSlice";
+import { useEffect } from "react";
 
 interface Inputs {
   email: string;
@@ -27,12 +30,27 @@ const Login = () => {
     watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const { user, isLoading } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
+
+  const onSubmit = (data: Inputs) => {
+    console.log(data);
+    dispatch(loginUser({ email: data.email, password: data.password }));
+  };
+
+  useEffect(() => {
+    if (user.email && !isLoading) {
+      navigate("/");
+    }
+  }, [user.email, isLoading]);
 
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-[#111827]">
       <div className="flex w-3/4">
-        <Card className="w-2/5 h-fit py-8 bg-[#1F2937] border-none text-white">
+        <Card className="w-1/2 h-fit bg-[#1F2937] border-none text-white">
           <CardHeader className="flex flex-col gap-y-4">
             <div className="flex gap-x-4">
               <img src="/book.svg" alt="book-logo" className="h-16" />
@@ -79,11 +97,6 @@ const Login = () => {
                 <hr className="bg-[#374151] w-1/2" />
               </div>
 
-              <Button className="w-full bg-transparent border border-[#374151] flex gap-x-4 mb-4">
-                <FcGoogle className="text-2xl " />
-                <span>Sign in with Google</span>
-              </Button>
-
               <div className="flex justify-between mb-4">
                 <div className="flex gap-x-2 items-center">
                   <Checkbox className="border-none rounded-md bg-[#374151]" />
@@ -98,6 +111,11 @@ const Login = () => {
                 Sign in to your account
               </Button>
             </form>
+
+            <Button className="w-full bg-transparent border border-[#374151] flex gap-x-4 mt-4">
+              <FcGoogle className="text-2xl " />
+              <span>Sign in with Google</span>
+            </Button>
           </CardContent>
         </Card>
         <div className="w-1/2 flex justify-end">
