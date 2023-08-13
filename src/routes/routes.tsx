@@ -6,6 +6,7 @@ import NotFound from "../pages/NotFound";
 import AllBooks from "../pages/AllBooks";
 import AddNewBook from "../pages/AddNewBook";
 import Signup from "../pages/Signup";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
   {
@@ -22,7 +23,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/add-new-book",
-        element: <AddNewBook />,
+        element: (
+          <PrivateRoute>
+            <AddNewBook />
+          </PrivateRoute>
+        ),
       },
       {
         path: "*",
