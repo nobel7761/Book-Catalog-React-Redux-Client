@@ -17,7 +17,7 @@ const Home = () => {
       ) : (
         <div className="grid grid-cols-2 gap-8">
           {data?.data.slice(0, 10).map((book: IBook, index: number) => (
-            <Link to={`/book/${book._id}` as string}>
+            <Link to={`/book/${book._id}` as string} key={index}>
               <BookCard key={index} book={book} />
             </Link>
           ))}

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetSingleBookQuery } from "../redux/features/books/booksApi";
 import { useAppSelector } from "../redux/hook";
 import { MdDelete } from "react-icons/md";
@@ -7,7 +7,10 @@ import moment from "moment";
 
 const BookDetails = () => {
   const { id } = useParams();
-  const { data, isLoading } = useGetSingleBookQuery(id);
+  const { data, isLoading } = useGetSingleBookQuery(id, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
   const ratingArray = data?.data?.reviews
     .map(
@@ -36,7 +39,9 @@ const BookDetails = () => {
             <div className="flex justify-between gap-x-2 items-center">
               {user.email === data?.data?.user.email && (
                 <>
-                  <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
+                  <Link to={`/edit-book/${data?.data?._id}`}>
+                    <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
+                  </Link>
                   <MdDelete className="text-5xl hover:text-red-500" />
                 </>
               )}
