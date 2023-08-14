@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   useDeleteBookMutation,
+  useGetReviewsQuery,
   useGetSingleBookQuery,
 } from "../redux/features/books/booksApi";
 import { useAppSelector } from "../redux/hook";
@@ -9,7 +10,7 @@ import { FiEdit } from "react-icons/fi";
 import moment from "moment";
 import { useState } from "react";
 import Modal from "../components/shared/Modal";
-import { IBook } from "./AllBooks";
+import { IBook, IReview } from "./AllBooks";
 import DeleteModal from "../components/shared/DeleteModal";
 import { toast } from "react-toastify";
 
@@ -37,6 +38,9 @@ const BookDetails = () => {
   });
 
   const [deleteBook, { isSuccess, isError }] = useDeleteBookMutation();
+  const { data: reviews, isLoading: loading } = useGetReviewsQuery(id);
+
+  console.log("reviews", reviews);
 
   const ratingArray = data?.data?.reviews
     .map(
@@ -152,6 +156,33 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+
+      {user.email && (
+        <div>
+          <p className="uppercase text-center font-bold text-2xl py-4">
+            Reviews
+          </p>
+          {reviews?.data.map((review: IReview, index: number) => (
+            <div
+              key={index}
+              className="flex gap-x-2 items-center pb-6 border-b border-black"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+                alt="avatar"
+                className="w-16 h-16"
+              />
+              <div>
+                <p className="capitalize font-bold text-[#1ABC9C]">
+                  {review.user}
+                </p>
+                <p className="text-sm font-bold">{review.comment}</p>
+                <p>{review.rating}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       <Modal isOpen={isOpen} closeModal={closeModal}>
         <DeleteModal
