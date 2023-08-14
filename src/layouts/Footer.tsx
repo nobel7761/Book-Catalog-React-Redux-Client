@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="w-full fixed bottom-0">
+    <div className="w-full bg-[#111827] text-white">
       <hr className="border-gray-200" />
-      <footer className="bg-white px-8 py-4">
+      <footer className="px-8 py-4">
         <div className="flex justify-between">
           <Link to="/" className="flex">
             <img

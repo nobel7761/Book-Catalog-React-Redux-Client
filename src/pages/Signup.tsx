@@ -49,7 +49,7 @@ const Signup = () => {
   }, [user.email, isLoading]);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-[#111827]">
+    <div className="h-screen flex flex-col justify-center items-center">
       <div className="flex w-3/4">
         <Card className="w-1/2 h-fit  bg-[#1F2937] border-none text-white">
           <CardHeader className="flex flex-col gap-y-4">
