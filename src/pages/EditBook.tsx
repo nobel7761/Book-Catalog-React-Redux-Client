@@ -25,8 +25,7 @@ type Inputs = {
   authorName: string;
 };
 
-const AddEditBook = () => {
-  const { pathname } = useLocation();
+const EditBook = () => {
   const { id } = useParams();
 
   const {
@@ -90,22 +89,16 @@ const AddEditBook = () => {
   };
 
   let book;
-  //   let loading;
 
   if (id) {
     const { data } = useGetSingleBookQuery(id);
     book = data?.data;
-    // loading = isLoading;
   }
-
-  //   console.log(book);
-  //   console.log(loading);
 
   return (
     <div>
       <p className="text-[#1ABC9C] underline text-5xl py-8 text-center uppercase font-bold">
-        {pathname.includes("add-new-book") && "Add New Book"}
-        {pathname.includes("edit-book") && "Edit Book"}
+        Edit Book
       </p>
 
       <form
@@ -199,4 +192,4 @@ const AddEditBook = () => {
   );
 };
 
-export default AddEditBook;
+export default EditBook;
