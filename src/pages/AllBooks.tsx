@@ -3,6 +3,7 @@ import BookCard from "../components/shared/BookCard";
 import BookCardSkeleton from "../components/skeletons/BookCardSkeleton";
 
 export type IBook = {
+  _id?: string;
   title: string;
   author: string;
   author_image: string;
