@@ -35,6 +35,15 @@ const AllBooks = () => {
         All {data?.data.length} Books
       </h1>
 
+      {/* add new book */}
+      <div className="w-2/3 mx-auto mb-6">
+        <Link to="/add-new-book">
+          <button className="w-full text-base font-medium text-white rounded py-1 bg-[#1ABC9C] hover:bg-[#1ABC9C]/80">
+            Add New Book
+          </button>
+        </Link>
+      </div>
+
       {isLoading ? (
         <BookCardSkeleton />
       ) : (

@@ -45,13 +45,6 @@ const Navbar = () => {
               >
                 All Books
               </Link>
-              {/* add new book */}
-              <Link
-                to="/add-new-book"
-                className="text-base font-medium text-gray-500 hover:text-[#1ABC9C]"
-              >
-                Add New Book
-              </Link>
 
               {/* sign in button */}
               {!user.email && (
