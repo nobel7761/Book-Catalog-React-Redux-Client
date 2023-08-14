@@ -1,9 +1,13 @@
 [
   {
-    "title": "The Mystery of the Hidden Key",
-    "author": "Jessica Parker",
-    "genre": "Mystery",
-    "publication_date": "2022-03-15",
+    "title": "The Girl on the Train",
+    "author": "Paula Hawkins",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Paula_Hawkins_G%C3%B6teborg_Book_Fair_2015.jpg/330px-Paula_Hawkins_G%C3%B6teborg_Book_Fair_2015.jpg",
+    "genre": "Thriller",
+    "user": {
+      "email": "habiburnobel@gmail.com"
+    },
+    "publication_date": "2022-01-13",
     "reviews": [
       { "user": "reader123", "rating": 4, "comment": "Exciting plot twists!" },
       {
@@ -17,13 +21,17 @@
         "comment": "Keeps you guessing till the end."
       }
     ],
-    "image_link": "https://example.com/book1.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/5/50/The_Girl_On_The_Train_%28US_cover_2015%29.png"
   },
   {
-    "title": "Echoes of Eternity",
-    "author": "Michael Anderson",
-    "genre": "Fantasy",
-    "publication_date": "2021-08-02",
+    "title": "Gone Girl",
+    "author": "Gillian Flynn",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Gillian_Flynn_2014_%28cropped%29.jpg/330px-Gillian_Flynn_2014_%28cropped%29.jpg",
+    "genre": "Thriller",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "2012-01-01",
     "reviews": [
       {
         "user": "fantasylover22",
@@ -41,13 +49,17 @@
         "comment": "Spells and sorcery done right."
       }
     ],
-    "image_link": "https://example.com/book2.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/7/7e/Gone_Girl_%28Flynn_novel%29.jpg"
   },
   {
-    "title": "Love in Bloom",
-    "author": "Emily Roberts",
-    "genre": "Romance",
-    "publication_date": "2023-02-14",
+    "title": "The Maid",
+    "author": "Nita Prose",
+    "author_image": "https://www.nitaprose.com/images/Nita-Prose-bio-v3.jpg",
+    "genre": "Thriller",
+    "user": {
+      "email": "habiburnobel@gmail.com"
+    },
+    "publication_date": "2022-01-01",
     "reviews": [
       {
         "user": "romanticatheart",
@@ -65,13 +77,17 @@
         "comment": "Touched my emotions deeply."
       }
     ],
-    "image_link": "https://example.com/book3.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/7/7d/The_Maid_-_A_Novel_%28book_cover%29.jpg"
   },
   {
-    "title": "The Last Frontier",
-    "author": "David Thompson",
-    "genre": "Science Fiction",
-    "publication_date": "2022-09-20",
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "author_image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQHrC31iCZ-c9yZ-h9cnJvt-NGUm88FBDf4P_BIzvV8zTjG_Uzo",
+    "genre": "Thriller",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "2019-02-05",
     "reviews": [
       {
         "user": "scifigeek",
@@ -89,12 +105,16 @@
         "comment": "An adventure beyond the stars."
       }
     ],
-    "image_link": "https://example.com/book4.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/d/df/The_Silent_Patient_early_2019_UK_edition.png"
   },
   {
-    "title": "Beyond the Horizon",
-    "author": "Sarah Walker",
-    "genre": "Adventure",
+    "title": "Lock Every Door",
+    "author": "Riley Sager",
+    "author_image": "https://pbs.twimg.com/profile_images/1448840695201116167/Akqvwl2Z_400x400.jpg",
+    "genre": "Thriller",
+    "user": {
+      "email": "dev.habiburnobel@gmail.com"
+    },
     "publication_date": "2023-04-10",
     "reviews": [
       {
@@ -113,13 +133,18 @@
         "comment": "A journey that ignites the soul."
       }
     ],
-    "image_link": "https://example.com/book5.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/5/5e/Lock_Every_Door.jpg"
   },
+
   {
-    "title": "Whispers in the Dark",
-    "author": "Jennifer Smith",
-    "genre": "Horror",
-    "publication_date": "2021-10-31",
+    "title": "The Notebook",
+    "author": "Nicholas Sparks",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/a/af/Nicholas-Sparks-Autograph-1-4-06.jpg",
+    "genre": "Romance",
+    "user": {
+      "email": "dev.habiburnobel@gmail.com"
+    },
+    "publication_date": "1996-10-01",
     "reviews": [
       {
         "user": "horroraddict",
@@ -137,13 +162,17 @@
         "comment": "A haunting tale of fear."
       }
     ],
-    "image_link": "https://example.com/book6.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/d/d9/The_Notebook_Cover.jpg"
   },
   {
-    "title": "A Song of Destiny",
-    "author": "Robert Martin",
-    "genre": "Historical Fiction",
-    "publication_date": "2022-05-12",
+    "title": "Call Me by Your Name",
+    "author": "André Aciman",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Andr%C3%A9_Aciman_Call_Me_By_Your_Name_Press_Conference_Berlinale_2017_%28cropped%29.jpg/330px-Andr%C3%A9_Aciman_Call_Me_By_Your_Name_Press_Conference_Berlinale_2017_%28cropped%29.jpg",
+    "genre": "Romance",
+    "user": {
+      "email": "nobel@apurbatech.com"
+    },
+    "publication_date": "2007-05-12",
     "reviews": [
       {
         "user": "historylover",
@@ -161,13 +190,17 @@
         "comment": "A symphony of history and imagination."
       }
     ],
-    "image_link": "https://example.com/book7.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/7/77/Call_Me_By_Your_Name%2C_2007_book_cover.jpg"
   },
   {
-    "title": "The Enchanted Forest",
-    "author": "Lily Green",
-    "genre": "Children's",
-    "publication_date": "2023-01-05",
+    "title": "Me Before You",
+    "author": "Jojo Moyes",
+    "author_image": "https://i.guim.co.uk/img/media/9ba4e8bd3f373100916450159bb79b84ba428230/577_668_6039_3623/master/6039.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=15e254aca7ffc715ba3e01825b7fe58b",
+    "genre": "Romance",
+    "user": {
+      "email": "dev.habiburnobel@gmail.com"
+    },
+    "publication_date": "2012-01-05",
     "reviews": [
       {
         "user": "storybookfan",
@@ -185,13 +218,17 @@
         "comment": "Captivated my child's imagination."
       }
     ],
-    "image_link": "https://example.com/book8.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/e/e0/Me_Before_You.jpg"
   },
   {
-    "title": "The Art of Cooking",
-    "author": "Julia Roberts",
-    "genre": "Cooking",
-    "publication_date": "2021-06-18",
+    "title": "Fifty Shades of Grey",
+    "author": "E. L. James",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/E._L._James_-_2019_%28cropped%29.jpg/330px-E._L._James_-_2019_%28cropped%29.jpg",
+    "genre": "Romance",
+    "user": {
+      "email": "nobel@apurbatech.com"
+    },
+    "publication_date": "2011-06-20",
     "reviews": [
       {
         "user": "foodlover",
@@ -209,13 +246,17 @@
         "comment": "Elevated my cooking skills."
       }
     ],
-    "image_link": "https://example.com/book9.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/5/5e/50ShadesofGreyCoverArt.jpg"
   },
   {
-    "title": "The Power of Mindfulness",
-    "author": "Megan Davis",
-    "genre": "Self-Help",
-    "publication_date": "2022-07-29",
+    "title": "Twilight",
+    "author": "Stephenie Meyer",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Stephenie_Meyer_by_Gage_Skidmore.jpg/330px-Stephenie_Meyer_by_Gage_Skidmore.jpg",
+    "genre": "Romance",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "2005-10-05",
     "reviews": [
       {
         "user": "mindfulreader",
@@ -233,13 +274,18 @@
         "comment": "A journey to a calmer self."
       }
     ],
-    "image_link": "https://example.com/book10.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/1/1d/Twilightbook.jpg"
   },
+
   {
-    "title": "Galactic Explorers",
-    "author": "Samuel Johnson",
-    "genre": "Sci-Fi",
-    "publication_date": "2023-06-05",
+    "title": "Murder on the Orient Express",
+    "author": "Agatha Christie",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Agatha_Christie.png/330px-Agatha_Christie.png",
+    "genre": "Mystery",
+    "user": {
+      "email": "nobel@apurbatech.com"
+    },
+    "publication_date": "1934-01-01",
     "reviews": [
       { "user": "scifiaddict", "rating": 5, "comment": "Epic space odyssey." },
       {
@@ -253,13 +299,17 @@
         "comment": "To infinity and beyond!"
       }
     ],
-    "image_link": "https://example.com/book11.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/c/c0/Murder_on_the_Orient_Express_First_Edition_Cover_1934.jpg"
   },
   {
-    "title": "Heartstrings",
-    "author": "Sophie Williams",
-    "genre": "Poetry",
-    "publication_date": "2021-04-12",
+    "title": "Rebecca",
+    "author": "Daphne du Maurier",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Young_Daphne_du_Maurier_restored_bw.jpg/330px-Young_Daphne_du_Maurier_restored_bw.jpg",
+    "genre": "Mystery",
+    "user": {
+      "email": "dev.habiburnobel@gmail.com"
+    },
+    "publication_date": "1938-08-05",
     "reviews": [
       {
         "user": "poetrylover",
@@ -277,13 +327,17 @@
         "comment": "A tapestry of feelings and words."
       }
     ],
-    "image_link": "https://example.com/book12.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/commons/5/55/Rebecca-FE.jpg"
   },
   {
-    "title": "City of Shadows",
-    "author": "Alex Turner",
-    "genre": "Thriller",
-    "publication_date": "2022-11-18",
+    "title": "The Sweetness at the Bottom of the Pie",
+    "author": "Alan Bradley",
+    "author_image": "https://maredilibri.it/festival//immagini/alan_bradley.jpg",
+    "genre": "Mystery",
+    "user": {
+      "email": "nobel@apurbatech.com"
+    },
+    "publication_date": "2009-04-28",
     "reviews": [
       {
         "user": "thrillerenthusiast",
@@ -301,13 +355,17 @@
         "comment": "An adrenaline-pumping ride."
       }
     ],
-    "image_link": "https://example.com/book13.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/1/1a/The_Sweetness_at_the_Bottom_of_the_Pie.jpg"
   },
   {
-    "title": "Garden of Serenity",
-    "author": "Emma Collins",
-    "genre": "Nature",
-    "publication_date": "2023-03-22",
+    "title": "The Woman in White",
+    "author": "Wilkie Collins",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Wilkie_Collins_by_Cundall%2C_Downes_%26_Co_%28cropped%29.jpg/300px-Wilkie_Collins_by_Cundall%2C_Downes_%26_Co_%28cropped%29.jpg",
+    "genre": "Mystery",
+    "user": {
+      "email": "dev.habiburnobel@gmail.com"
+    },
+    "publication_date": "1860-08-25",
     "reviews": [
       {
         "user": "naturelover",
@@ -325,13 +383,17 @@
         "comment": "Refreshes the spirit like a walk in the garden."
       }
     ],
-    "image_link": "https://example.com/book14.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Woman_In_White_-_Cover.jpg/330px-The_Woman_In_White_-_Cover.jpg"
   },
   {
-    "title": "Dreamcatcher",
-    "author": "Oliver Mitchell",
-    "genre": "Fantasy",
-    "publication_date": "2022-12-10",
+    "title": "The Big Sleep",
+    "author": "Raymond Chandler",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Raymond_Chandler_%28Lady_in_the_Lake_portrait%2C_1943%29.jpg",
+    "genre": "Mystery",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "1939-01-01",
     "reviews": [
       {
         "user": "fantasyadventurer",
@@ -349,13 +411,18 @@
         "comment": "A captivating journey beyond reality."
       }
     ],
-    "image_link": "https://example.com/book15.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/f/f9/RaymondChandler_TheBigSleep.jpg"
   },
+
   {
-    "title": "Culinary Adventures",
-    "author": "Sophia Miller",
-    "genre": "Cooking",
-    "publication_date": "2023-07-14",
+    "title": "The Lion, the Witch and the Wardrobe",
+    "author": "C. S. Lewis",
+    "author_image": "https://upload.wikimedia.org/wikipedia/en/1/1e/C.s.lewis3.JPG",
+    "genre": "Fantasy",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "1950-10-16",
     "reviews": [
       {
         "user": "foodexplorer",
@@ -373,13 +440,17 @@
         "comment": "Elevates everyday cooking to an art."
       }
     ],
-    "image_link": "https://example.com/book16.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/8/86/TheLionWitchWardrobe%281stEd%29.jpg"
   },
   {
-    "title": "Eternal Bonds",
-    "author": "Isabella Walker",
-    "genre": "Romance",
-    "publication_date": "2021-09-09",
+    "title": "The Last Unicorn",
+    "author": "Peter S. Beagle",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/PeterBeagle.jpg/330px-PeterBeagle.jpg",
+    "genre": "Fantasy",
+    "user": {
+      "email": "habiburnobel@gmail.com"
+    },
+    "publication_date": "1968-09-09",
     "reviews": [
       {
         "user": "hopelessromantic",
@@ -397,13 +468,17 @@
         "comment": "Passion and devotion beautifully portrayed."
       }
     ],
-    "image_link": "https://example.com/book17.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/6/6f/Last_unicorn_hb.jpg"
   },
   {
-    "title": "In the Footsteps of Giants",
-    "author": "Jonathan Turner",
-    "genre": "History",
-    "publication_date": "2022-04-25",
+    "title": "Children of Blood and Bone",
+    "author": "Tomi Adeyemi",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Tomi_Adeyemi%2C_2022.jpg/375px-Tomi_Adeyemi%2C_2022.jpg",
+    "genre": "Fantasy",
+    "user": {
+      "email": "rokaiahfardous@gmail.com"
+    },
+    "publication_date": "2018-03-06",
     "reviews": [
       {
         "user": "historybuff",
@@ -421,13 +496,17 @@
         "comment": "A walk through history's corridors."
       }
     ],
-    "image_link": "https://example.com/book18.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/en/2/2b/Children_of_Blood_and_Bone.jpg"
   },
   {
-    "title": "Beyond the Stars",
-    "author": "Grace Thompson",
-    "genre": "Science Fiction",
-    "publication_date": "2023-05-30",
+    "title": "The Way of Kings",
+    "author": "Brandon Sanderson",
+    "author_image": "https://pbs.twimg.com/profile_images/1611444577684303873/keZezJ_n_400x400.jpg",
+    "genre": "Fantasy",
+    "user": {
+      "email": "habiburnobel@gmail.com"
+    },
+    "publication_date": "2010-08-31",
     "reviews": [
       {
         "user": "scififanatic",
@@ -445,13 +524,17 @@
         "comment": "Expands the horizons of imagination."
       }
     ],
-    "image_link": "https://example.com/book19.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Brandon_Sanderson_-_Lucca_Comics_%26_Games_2016.jpg/330px-Brandon_Sanderson_-_Lucca_Comics_%26_Games_2016.jpg"
   },
   {
-    "title": "A Whisper in the Wind",
-    "author": "Ella Mitchell",
-    "genre": "Drama",
-    "publication_date": "2022-10-15",
+    "title": "The Once and Future King",
+    "author": "T. H. White",
+    "author_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/White-in-Boston-CollegeII.jpg/330px-White-in-Boston-CollegeII.jpg",
+    "genre": "Fantasy",
+    "user": {
+      "email": "nobel@apurbatech.com"
+    },
+    "publication_date": "1958-10-15",
     "reviews": [
       {
         "user": "dramalover",
@@ -469,6 +552,6 @@
         "comment": "A poignant exploration of life's twists."
       }
     ],
-    "image_link": "https://example.com/book20.jpg"
+    "image_link": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Once-and-Future-King-FC.jpg"
   }
 ]
