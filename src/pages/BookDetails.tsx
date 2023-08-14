@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetSingleBookQuery } from "../redux/features/books/booksApi";
 import { useAppSelector } from "../redux/hook";
 import { MdDelete } from "react-icons/md";
@@ -36,7 +36,9 @@ const BookDetails = () => {
             <div className="flex justify-between gap-x-2 items-center">
               {user.email === data?.data?.user.email && (
                 <>
-                  <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
+                  <Link to={`/edit-book/${data?.data?._id}`}>
+                    <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
+                  </Link>
                   <MdDelete className="text-5xl hover:text-red-500" />
                 </>
               )}
