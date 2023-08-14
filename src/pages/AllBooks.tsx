@@ -24,7 +24,10 @@ export type IReview = {
 };
 
 const AllBooks = () => {
-  const { data, isLoading } = useGetBooksQuery(undefined);
+  const { data, isLoading } = useGetBooksQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
   return (
     <div className="py-8">

@@ -7,7 +7,10 @@ import moment from "moment";
 
 const BookDetails = () => {
   const { id } = useParams();
-  const { data, isLoading } = useGetSingleBookQuery(id);
+  const { data, isLoading } = useGetSingleBookQuery(id, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
   const ratingArray = data?.data?.reviews
     .map(
