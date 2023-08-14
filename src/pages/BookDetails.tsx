@@ -70,7 +70,9 @@ const BookDetails = () => {
 
           <p className="font-bold text-xl">
             Rating:
-            <span className="font-normal text-base ml-2">{rating}</span>
+            <span className="font-normal text-base ml-2">
+              {rating ? rating : "-"}
+            </span>
           </p>
 
           <div className="flex justify-end">
