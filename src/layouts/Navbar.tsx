@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-[#111827]">
       <div className="absolute inset-0 shadow z-30 pointer-events-none" />
       <div className="relative z-20">
         <div className="flex justify-between items-center px-8 py-5 space-x-5">
