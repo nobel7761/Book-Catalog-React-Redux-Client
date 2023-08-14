@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   useGetSingleBookQuery,
   useUpdateSingleBookMutation,
@@ -60,7 +60,6 @@ const EditBook = () => {
     updateData(options);
 
     if (isSuccess) {
-      console.log("success");
       toast.success("Updated Successfully", {
         position: "bottom-left",
         autoClose: 2000,
@@ -74,8 +73,7 @@ const EditBook = () => {
     }
 
     if (isError) {
-      console.log("success");
-      toast.success("Something Went Wrong!", {
+      toast.error("Something Went Wrong!", {
         position: "bottom-left",
         autoClose: 2000,
         hideProgressBar: false,
