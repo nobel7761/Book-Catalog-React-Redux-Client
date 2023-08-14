@@ -40,8 +40,8 @@ const AllBooks = () => {
       ) : (
         <div className="grid grid-cols-2 gap-8">
           {data?.data.map((book: IBook, index: number) => (
-            <Link to={`/book/${book._id}` as string}>
-              <BookCard key={index} book={book} />
+            <Link to={`/book/${book._id}` as string} key={index}>
+              <BookCard book={book} />
             </Link>
           ))}
         </div>
