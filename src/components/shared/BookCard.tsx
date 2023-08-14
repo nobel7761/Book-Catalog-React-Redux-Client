@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import moment from "moment";
 import { IBook } from "../../pages/AllBooks";
 
@@ -11,11 +10,9 @@ const BookCard = ({ book }: { book: IBook }) => {
     .reduce((total: number, value: number) => total + value, 0);
 
   const rating = Math.floor(ratingArray / book.reviews.length);
+
   return (
-    <Link
-      to={book._id as string}
-      className="flex w-full rounded-lg border border-[#111827]/10 hover:bg-gray-100"
-    >
+    <div className="flex w-full rounded-lg border border-[#111827]/10 hover:bg-gray-100">
       <img
         className="object-cover w-1/4 rounded-tl-md rounded-bl-md h-64"
         src={book.image_link}
@@ -61,7 +58,7 @@ const BookCard = ({ book }: { book: IBook }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
