@@ -42,7 +42,9 @@ const BookCard = ({ book }: { book: IBook }) => {
 
           <p className="font-bold">
             Rating:
-            <span className="font-normal text-sm ml-2">{rating}</span>
+            <span className="font-normal text-sm ml-2">
+              {rating ? rating : "-"}
+            </span>
           </p>
         </div>
 

@@ -1,16 +1,42 @@
-import { Link, useParams } from "react-router-dom";
-import { useGetSingleBookQuery } from "../redux/features/books/booksApi";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  useDeleteBookMutation,
+  useGetSingleBookQuery,
+} from "../redux/features/books/booksApi";
 import { useAppSelector } from "../redux/hook";
 import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import moment from "moment";
+import { useState } from "react";
+import Modal from "../components/shared/Modal";
+import { IBook } from "./AllBooks";
+import DeleteModal from "../components/shared/DeleteModal";
+import { toast } from "react-toastify";
 
 const BookDetails = () => {
   const { id } = useParams();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState<IBook>();
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const handleAction = (item: IBook) => {
+    openModal();
+    setSelectedBook(item);
+  };
+
   const { data, isLoading } = useGetSingleBookQuery(id, {
     refetchOnMountOrArgChange: true,
     pollingInterval: 1000,
   });
+
+  const [deleteBook, { isSuccess, isError }] = useDeleteBookMutation();
 
   const ratingArray = data?.data?.reviews
     .map(
@@ -22,6 +48,39 @@ const BookDetails = () => {
   const rating = Math.floor(ratingArray / data?.data?.reviews.length);
 
   const { user } = useAppSelector((state) => state.user);
+
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    deleteBook(selectedBook._id);
+
+    if (isSuccess) {
+      navigate("/all-books");
+      toast.success("Successfully Deleted The Book", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
+    if (isError) {
+      toast.error("Something went wrong", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
 
   return (
     <div className="py-8">
@@ -42,7 +101,10 @@ const BookDetails = () => {
                   <Link to={`/edit-book/${data?.data?._id}`}>
                     <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
                   </Link>
-                  <MdDelete className="text-5xl hover:text-red-500" />
+                  <MdDelete
+                    className="text-5xl hover:text-red-500"
+                    onClick={() => handleAction(data?.data)}
+                  />
                 </>
               )}
             </div>
@@ -90,6 +152,15 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <DeleteModal
+          book={selectedBook!}
+          closeModal={closeModal}
+          handleDelete={handleDelete}
+          name={data?.data?.title}
+        />
+      </Modal>
     </div>
   );
 };
