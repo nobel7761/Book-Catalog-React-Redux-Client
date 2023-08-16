@@ -106,7 +106,7 @@ const BookDetails = () => {
                     <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
                   </Link>
                   <MdDelete
-                    className="text-5xl hover:text-red-500"
+                    className="text-5xl hover:text-red-500 cursor-pointer"
                     onClick={() => handleAction(data?.data)}
                   />
                 </>

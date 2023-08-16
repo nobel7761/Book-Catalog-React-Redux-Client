@@ -41,6 +41,7 @@ const AddNewBook = () => {
       user: {
         email: user?.email,
       },
+      reviews: [],
       publication_date: data.publicationDate,
       image_link: data.bookImage,
     };
