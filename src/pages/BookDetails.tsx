@@ -32,15 +32,13 @@ const BookDetails = () => {
     setSelectedBook(item);
   };
 
-  const { data, isLoading } = useGetSingleBookQuery(id, {
+  const { data } = useGetSingleBookQuery(id, {
     refetchOnMountOrArgChange: true,
     pollingInterval: 1000,
   });
 
   const [deleteBook, { isSuccess, isError }] = useDeleteBookMutation();
-  const { data: reviews, isLoading: loading } = useGetReviewsQuery(id);
-
-  console.log("reviews", reviews);
+  const { data: reviews } = useGetReviewsQuery(id);
 
   const ratingArray = data?.data?.reviews
     .map(

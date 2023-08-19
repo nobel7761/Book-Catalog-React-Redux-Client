@@ -8,8 +8,7 @@ const App = () => {
   const storedUserData = sessionStorage.getItem("user");
   if (storedUserData !== null) {
     const userData = JSON.parse(storedUserData);
-
-    dispatch(signIn(userData));
+    dispatch(signIn(userData.email));
   }
 
   return (

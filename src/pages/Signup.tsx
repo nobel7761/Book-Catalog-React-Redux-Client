@@ -53,8 +53,18 @@ const Signup = () => {
     const userData = JSON.stringify(data?.data);
     sessionStorage.setItem("user", userData);
   }
+
   if (isError) {
-    console.log("error", error);
+    toast.error("Something Went Wrong!", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
   useEffect(() => {
@@ -64,7 +74,16 @@ const Signup = () => {
     }
 
     if (isSuccess) {
-      toast.success(data.message);
+      toast.success("Signed In Successfully", {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       navigate("/");
     }
   }, [isError, isSuccess, navigate, data, error]);
@@ -159,12 +178,6 @@ const Signup = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex gap-x-4 items-center">
-                <hr className="bg-[#374151] w-1/2" />
-                <p className="text-sm">or</p>
-                <hr className="bg-[#374151] w-1/2" />
               </div>
 
               <Button

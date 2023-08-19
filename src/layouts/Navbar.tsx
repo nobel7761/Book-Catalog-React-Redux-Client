@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../redux/hook";
+import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { signOut } from "../redux/features/user/userSlice";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    dispatch(signOut());
+    toast.success("Signed Out Successfully", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   return (
     <div className="relative bg-[#111827]">
@@ -47,7 +65,7 @@ const Navbar = () => {
               {/* log out button */}
               {user.email && (
                 <button
-                  // onClick={handleLogout}
+                  onClick={handleLogout}
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
                   Logout
