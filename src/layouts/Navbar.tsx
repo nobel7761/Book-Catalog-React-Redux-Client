@@ -1,19 +1,8 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { signOut } from "firebase/auth";
-import { auth } from "../lib/firebase";
-import { setUser } from "../redux/features/user/userSlice";
+import { useAppSelector } from "../redux/hook";
 
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
-
-  const dispatch = useAppDispatch();
-
-  const handleLogout = () => {
-    signOut(auth).then(() => {
-      dispatch(setUser(null));
-    });
-  };
 
   return (
     <div className="relative bg-[#111827]">
@@ -58,7 +47,7 @@ const Navbar = () => {
               {/* log out button */}
               {user.email && (
                 <button
-                  onClick={handleLogout}
+                  // onClick={handleLogout}
                   className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
                   Logout

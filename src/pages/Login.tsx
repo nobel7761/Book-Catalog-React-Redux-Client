@@ -5,7 +5,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/shadcn/ui/card";
@@ -14,10 +13,6 @@ import { Label } from "../components/shadcn/ui/label";
 import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Checkbox } from "../components/shadcn/ui/checkbox";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { loginUser } from "../redux/features/user/userSlice";
-import { useEffect } from "react";
-import LoadingIcon from "../components/shared/LoadingIcon";
 
 interface Inputs {
   email: string;
@@ -31,21 +26,9 @@ const Login = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const { user, isLoading } = useAppSelector((state) => state.user);
-  const dispatch = useAppDispatch();
-
-  const navigate = useNavigate();
-
   const onSubmit = (data: Inputs) => {
     console.log(data);
-    dispatch(loginUser({ email: data.email, password: data.password }));
   };
-
-  useEffect(() => {
-    if (user.email && !isLoading) {
-      navigate("/");
-    }
-  }, [user.email, isLoading]);
 
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-[#111827]">
@@ -111,7 +94,7 @@ const Login = () => {
                 type="submit"
                 className="bg-[#2563EB] w-full flex items-center gap-x-3"
               >
-                {isLoading ? <LoadingIcon /> : null}
+                {/* {isLoading ? <LoadingIcon /> : null} */}
                 Log in to your account
               </Button>
             </form>
