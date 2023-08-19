@@ -1,25 +1,15 @@
-import { useEffect } from "react";
 import MainLayout from "./layouts/MainLayout";
 import { useAppDispatch } from "./redux/hook";
-import { setLoading, setUser } from "./redux/features/user/userSlice";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./lib/firebase";
+import { signIn } from "./redux/features/user/userSlice";
 
 const App = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(setLoading(true));
-    //! doing this for user persistency. which means, setting the user in state so that when changing route the user do not logged out automatically
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUser(user.email));
-        dispatch(setLoading(false));
-      } else {
-        dispatch(setLoading(false));
-      }
-    });
-  }, [dispatch]);
+  const storedUserData = sessionStorage.getItem("user");
+  if (storedUserData !== null) {
+    const userData = JSON.parse(storedUserData);
+    dispatch(signIn(userData.email));
+  }
 
   return (
     <div>

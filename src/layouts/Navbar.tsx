@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { signOut } from "firebase/auth";
-import { auth } from "../lib/firebase";
-import { setUser } from "../redux/features/user/userSlice";
+import { signOut } from "../redux/features/user/userSlice";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
-
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      dispatch(setUser(null));
+    sessionStorage.clear();
+    dispatch(signOut());
+    toast.success("Signed Out Successfully", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
   };
 

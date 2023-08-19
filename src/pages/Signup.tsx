@@ -1,23 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/shadcn/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/shadcn/ui/card";
 import { Input } from "../components/shadcn/ui/input";
 import { Label } from "../components/shadcn/ui/label";
-import { FcGoogle } from "react-icons/fc";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Checkbox } from "../components/shadcn/ui/checkbox";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { createUser } from "../redux/features/user/userSlice";
-import { useEffect } from "react";
 import LoadingIcon from "../components/shared/LoadingIcon";
+import { useCreateUserMutation } from "../redux/features/user/userApi";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 interface Inputs {
   name: string;
@@ -30,26 +26,70 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const dispatch = useAppDispatch();
-  const { user, isLoading } = useAppSelector((state) => state.user);
+  const [signUpUser, { data, error, isLoading, isSuccess, isError }] =
+    useCreateUserMutation();
+
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    dispatch(createUser({ email: data.email, password: data.password }));
+    const user = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      contact: data.contact,
+      wishList: [],
+      readSoon: [],
+      readFuture: [],
+      finishReading: [],
+    };
+
+    signUpUser(user);
   };
 
+  if (isSuccess) {
+    const userData = JSON.stringify(data?.data);
+    sessionStorage.setItem("user", userData);
+  }
+
+  if (isError) {
+    toast.error("Something Went Wrong!", {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
   useEffect(() => {
-    if (user.email && !isLoading) {
+    if (error && "data" in error) {
+      const data = error.data as { message: string } | undefined;
+      toast.error(data?.message || "An error occurred");
+    }
+
+    if (isSuccess) {
+      toast.success("Signed In Successfully", {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       navigate("/");
     }
-  }, [user.email, isLoading]);
+  }, [isError, isSuccess, navigate, data, error]);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
+    <div className="h-screen flex flex-col justify-center items-center bg-[#111827]">
       <div className="flex w-3/4">
         <Card className="w-1/2 h-fit  bg-[#1F2937] border-none text-white">
           <CardHeader className="flex flex-col gap-y-4">
@@ -140,22 +180,6 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className="flex gap-x-4 items-center">
-                <hr className="bg-[#374151] w-1/2" />
-                <p className="text-sm">or</p>
-                <hr className="bg-[#374151] w-1/2" />
-              </div>
-
-              <div className="flex justify-between">
-                <div className="flex gap-x-2 items-center">
-                  <Checkbox className="border-none rounded-md bg-[#374151]" />
-                  <p>Remember me</p>
-                </div>
-                <Link to="/forget-password">
-                  <p className="text-blue-500 underline">Forgot Passowrd?</p>
-                </Link>
-              </div>
-
               <Button
                 type="submit"
                 className="bg-[#2563EB] w-full flex items-center gap-x-3"
@@ -164,11 +188,6 @@ const Signup = () => {
                 Sign in to your account
               </Button>
             </form>
-
-            <Button className="w-full bg-transparent border border-[#374151] flex gap-x-4 mt-4">
-              <FcGoogle className="text-2xl " />
-              <span>Sign in with Google</span>
-            </Button>
           </CardContent>
         </Card>
         <div className="w-1/2 flex justify-end">

@@ -47,7 +47,6 @@ const AddNewBook = () => {
     };
 
     createBook(bookData);
-    console.log(bookData);
 
     if (isSuccess) {
       toast.success("Successfully Created The Book", {
