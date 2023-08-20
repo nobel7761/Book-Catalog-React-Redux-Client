@@ -41,8 +41,7 @@ const Navbar = () => {
               </span>
             </Link>
           </div>
-          <div className="-mr-2 -my-2 md:hidden"></div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
+          <div className="">
             <div className="flex space-x-4"></div>
             <div className="flex items-center ml-12 gap-x-8">
               {/* all books */}
