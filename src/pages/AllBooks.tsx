@@ -20,9 +20,8 @@ export type IBook = {
 };
 
 export type IReview = {
-  user: string;
-  rating: number;
-  comment: string;
+  name: string;
+  review: string;
 };
 
 const AllBooks = () => {
