@@ -2,8 +2,7 @@ import { useGetBooksQuery } from "../redux/features/books/booksApi";
 import BookCard from "../components/shared/BookCard";
 import BookCardSkeleton from "../components/skeletons/BookCardSkeleton";
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
-import { searchTerm } from "../redux/features/books/booksSlice";
+import { useState } from "react";
 
 export type IBook = {
   _id?: string;
@@ -26,22 +25,19 @@ export type IReview = {
 };
 
 const AllBooks = () => {
-  const { book } = useAppSelector((state) => state.book);
-  const dispatch = useAppDispatch();
+  const [searchedTerm, setSearchedTerm] = useState("");
 
-  const { data, isLoading } = useGetBooksQuery(book.searchTerm, {
+  const url = `searchTerm=${searchedTerm}`;
+
+  const { data, isLoading } = useGetBooksQuery(url, {
     refetchOnMountOrArgChange: true,
     // pollingInterval: 1000,
   });
 
-  console.log("books here", data);
+  console.log("Data", data);
 
   const handleChange = (value: string) => {
-    if (value === "") {
-      dispatch(searchTerm(null));
-    } else {
-      dispatch(searchTerm(value));
-    }
+    setSearchedTerm(value.toLowerCase());
   };
 
   return (
@@ -50,13 +46,38 @@ const AllBooks = () => {
         All {data?.data.length} Books
       </h1>
 
-      <div className="my-6">
-        <input
-          type="text"
-          className="w-1/4 border-2 border-gray-300 outline-none px-3 py-1 rounded"
-          placeholder="Search Book Here..."
-          onChange={(e) => handleChange(e.target.value)}
-        />
+      <div className="my-6 shadow-md shadow-black p-2 rounded-md grid grid-cols-3 gap-x-4">
+        <div>
+          <p className="text-gray-500 font-bold px-4 py-1">Search Book:</p>
+          <input
+            type="text"
+            className="w-full border-2 border-gray-300 outline-none px-3 py-1 rounded"
+            placeholder="Search Book Here by Title, Author or Genre..."
+            onChange={(e) => handleChange(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <p className="text-gray-500 font-bold px-4 py-1">Filters by Genre</p>
+          <input
+            type="text"
+            className="w-full border-2 border-gray-300 outline-none px-3 py-1 rounded"
+            placeholder="Search Book Here by Title, Author or Genre..."
+            onChange={(e) => handleChange(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <p className="text-gray-500 font-bold px-4 py-1">
+            Filters by Publication Year
+          </p>
+          <input
+            type="text"
+            className="w-full border-2 border-gray-300 outline-none px-3 py-1 rounded"
+            placeholder="Search Book Here by Title, Author or Genre..."
+            onChange={(e) => handleChange(e.target.value)}
+          />
+        </div>
       </div>
 
       {/* add new book */}
@@ -70,17 +91,17 @@ const AllBooks = () => {
 
       {isLoading ? (
         <BookCardSkeleton />
+      ) : data?.data.length === 0 ? (
+        <p className="text-red-500 text-3xl font-bold uppercase text-center">
+          No books matched your search criteria.
+        </p>
       ) : (
         <div className="grid grid-cols-2 gap-8">
-          {data?.data.length === 0 ? (
-            <p>No books matched your search criteria.</p>
-          ) : (
-            data?.data.map((book: IBook, index: number) => (
-              <Link to={`/book/${book._id}` as string} key={index}>
-                <BookCard book={book} />
-              </Link>
-            ))
-          )}
+          {data?.data.map((book: IBook, index: number) => (
+            <Link to={`/book/${book._id}` as string} key={index}>
+              <BookCard book={book} />
+            </Link>
+          ))}
         </div>
       )}
     </div>
