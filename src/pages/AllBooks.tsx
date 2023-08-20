@@ -3,6 +3,7 @@ import BookCard from "../components/shared/BookCard";
 import BookCardSkeleton from "../components/skeletons/BookCardSkeleton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import CustomListBox from "../components/shared/CustomListBox";
 
 export type IBook = {
   _id?: string;
@@ -26,15 +27,26 @@ export type IReview = {
 
 const AllBooks = () => {
   const [searchedTerm, setSearchedTerm] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [selectedYear, setSelectedYear] = useState("");
 
-  const url = `searchTerm=${searchedTerm}`;
+  const url = `searchTerm=${searchedTerm}${
+    selectedGenre !== "" ? `&genre=${selectedGenre}` : ""
+  }${selectedYear !== "" ? `&publication_date=${selectedYear}` : ""}`;
 
   const { data, isLoading } = useGetBooksQuery(url, {
     refetchOnMountOrArgChange: true,
-    // pollingInterval: 1000,
+    pollingInterval: 1000,
   });
 
-  console.log("Data", data);
+  const genreList = Array.from(
+    new Set(data?.data.map((book: IBook) => book.genre))
+  ).sort();
+  const publication_year = Array.from(
+    new Set(data?.data.map((book: IBook) => book.publication_date.slice(0, 4)))
+  ).sort();
+
+  console.log("sort", publication_year);
 
   const handleChange = (value: string) => {
     setSearchedTerm(value.toLowerCase());
@@ -46,6 +58,7 @@ const AllBooks = () => {
         All {data?.data.length} Books
       </h1>
 
+      {/* search bar */}
       <div className="my-6 shadow-md shadow-black p-2 rounded-md grid grid-cols-3 gap-x-4">
         <div>
           <p className="text-gray-500 font-bold px-4 py-1">Search Book:</p>
@@ -57,26 +70,28 @@ const AllBooks = () => {
           />
         </div>
 
-        <div>
+        <div className="">
           <p className="text-gray-500 font-bold px-4 py-1">Filters by Genre</p>
-          <input
-            type="text"
-            className="w-full border-2 border-gray-300 outline-none px-3 py-1 rounded"
-            placeholder="Search Book Here by Title, Author or Genre..."
-            onChange={(e) => handleChange(e.target.value)}
-          />
+          {!isLoading && (
+            <CustomListBox
+              data={genreList}
+              selected={selectedGenre}
+              setSelected={setSelectedGenre}
+            />
+          )}
         </div>
 
         <div>
           <p className="text-gray-500 font-bold px-4 py-1">
             Filters by Publication Year
           </p>
-          <input
-            type="text"
-            className="w-full border-2 border-gray-300 outline-none px-3 py-1 rounded"
-            placeholder="Search Book Here by Title, Author or Genre..."
-            onChange={(e) => handleChange(e.target.value)}
-          />
+          {!isLoading && (
+            <CustomListBox
+              data={publication_year}
+              selected={selectedYear}
+              setSelected={setSelectedYear}
+            />
+          )}
         </div>
       </div>
 
