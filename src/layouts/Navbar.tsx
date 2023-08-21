@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { signOut } from "../redux/features/user/userSlice";
 import { toast } from "react-toastify";
+import { IoBookOutline } from "react-icons/io5";
+import { LuBookX } from "react-icons/lu";
+import { useGetSingleUserByEmailQuery } from "../redux/features/user/userApi";
 
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+
+  const { data: userData } = useGetSingleUserByEmailQuery(user.email);
+
+  console.log("navbar", userData.data);
 
   const handleLogout = () => {
     sessionStorage.clear();
@@ -41,9 +48,46 @@ const Navbar = () => {
               </span>
             </Link>
           </div>
-          <div className="">
+          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
             <div className="flex space-x-4"></div>
             <div className="flex items-center ml-12 gap-x-8">
+              {user.email && (
+                <div className="flex items-center gap-x-4">
+                  <Link to="/wish-list" className="relative">
+                    <IoBookOutline className="text-[#1ABC9C] text-3xl" />
+                    {userData?.data?.wishList.length > 0 && (
+                      <span className="absolute -right-1 bottom-0 w-4 h-4 rounded-full bg-red-500 text-white flex justify-center items-center text-xs">
+                        {userData?.data?.wishList.length}
+                      </span>
+                    )}
+                  </Link>
+                  <Link to="/read-soon" className="relative">
+                    <IoBookOutline className="text-[#1ABC9C] text-3xl" />
+                    {userData?.data?.readSoon.length > 0 && (
+                      <span className="absolute -right-1 bottom-0 w-4 h-4 rounded-full bg-red-500 text-white flex justify-center items-center text-xs">
+                        {userData?.data?.readSoon.length}
+                      </span>
+                    )}
+                  </Link>
+                  <Link to="/read-future" className="relative">
+                    <IoBookOutline className="text-[#1ABC9C] text-3xl" />
+                    {userData?.data.readFuture.length > 0 && (
+                      <span className="absolute -right-1 bottom-0 w-4 h-4 rounded-full bg-red-500 text-white flex justify-center items-center text-xs">
+                        {userData?.data?.readFuture.length}
+                      </span>
+                    )}
+                  </Link>
+                  <Link to="/finish-reading" className="relative">
+                    <LuBookX className="text-[#1ABC9C] text-3xl" />
+                    {userData.data.finishReading.length > 0 && (
+                      <span className="absolute -right-1 bottom-0 w-4 h-4 rounded-full bg-red-500 text-white flex justify-center items-center text-xs">
+                        {userData?.data?.finishReading.length}
+                      </span>
+                    )}
+                  </Link>
+                </div>
+              )}
+
               {/* all books */}
               <Link
                 to="/all-books"

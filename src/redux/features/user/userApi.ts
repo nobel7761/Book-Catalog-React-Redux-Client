@@ -16,7 +16,51 @@ const userApi = api.injectEndpoints({
         body: user,
       }),
     }),
+    getSingleUserByEmail: builder.query({
+      query: (email) => `/user/${email}`,
+      providesTags: ["user"],
+    }),
+    updateUserWishListByEmail: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/user/wish-list/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    updateUserReadSoonListByEmail: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/user/read-soon/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    updateUserReadFutureListByEmail: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/user/read-future/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
+    updateUserFinishReadingListByEmail: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/user/finish-reading/${id}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
-export const { useCreateUserMutation, useLoginMutation } = userApi;
+export const {
+  useCreateUserMutation,
+  useLoginMutation,
+  useGetSingleUserByEmailQuery,
+  useUpdateUserWishListByEmailMutation,
+  useUpdateUserReadSoonListByEmailMutation,
+  useUpdateUserReadFutureListByEmailMutation,
+  useUpdateUserFinishReadingListByEmailMutation,
+} = userApi;

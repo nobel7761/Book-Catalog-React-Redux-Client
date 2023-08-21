@@ -3,6 +3,6 @@ import { fetchBaseQuery, createApi } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
-  tagTypes: ["book"], //! for data cache revalidation
+  tagTypes: ["book", "user"], //! for data cache revalidation
   endpoints: () => ({}),
 });
