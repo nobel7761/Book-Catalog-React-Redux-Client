@@ -3,6 +3,7 @@ import {
   useDeleteBookMutation,
   useGetReviewsQuery,
   useGetSingleBookQuery,
+  usePostReviewMutation,
 } from "../redux/features/books/booksApi";
 import { useAppSelector } from "../redux/hook";
 import { MdDelete } from "react-icons/md";
@@ -13,6 +14,11 @@ import Modal from "../components/shared/Modal";
 import { IBook, IReview } from "./AllBooks";
 import DeleteModal from "../components/shared/DeleteModal";
 import { toast } from "react-toastify";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface Inputs {
+  review: string;
+}
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -72,6 +78,51 @@ const BookDetails = () => {
 
     if (isError) {
       toast.error("Something went wrong", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
+  const { register, handleSubmit } = useForm<Inputs>();
+  const [postReview, { isSuccess: ReviewSuccess, isError: ReviewError }] =
+    usePostReviewMutation();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const bookData = {
+      name: user.email,
+      review: data.review,
+    };
+
+    const options = {
+      id: id,
+      review: bookData,
+    };
+
+    postReview(options);
+    console.log("review", options);
+
+    if (ReviewSuccess) {
+      toast.success("Review Posted Successfully", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
+    if (ReviewError) {
+      toast.error("Something Went Wrong!", {
         position: "bottom-left",
         autoClose: 2000,
         hideProgressBar: false,
@@ -155,30 +206,55 @@ const BookDetails = () => {
         </div>
       </div>
 
-      {user.email && (
-        <div>
-          <p className="uppercase text-center font-bold text-2xl py-4">
-            Reviews
-          </p>
-          {reviews?.data.map((review: IReview, index: number) => (
-            <div
-              key={index}
-              className="flex gap-x-2 items-center pb-6 border-b border-black"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
-                alt="avatar"
-                className="w-16 h-16"
-              />
-              <div>
-                <p className="capitalize font-bold text-[#1ABC9C]">
-                  {review.user}
-                </p>
-                <p className="text-sm font-bold">{review.comment}</p>
-                <p>{review.rating}</p>
-              </div>
+      <div>
+        <p className="uppercase text-center font-bold text-2xl py-4">Reviews</p>
+        {reviews?.data.map((review: IReview, index: number) => (
+          <div
+            key={index}
+            className={`flex gap-x-2 items-center pb-6 border-b border-black ${
+              user.email === review.name ? "justify-end" : "justify-start"
+            }`}
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+              alt="avatar"
+              className={`w-16 h-16 ${
+                user.email === review.name ? "order-2" : ""
+              }`}
+            />
+            <div>
+              <p className="uppercase font-bold text-[#1ABC9C]">
+                {review.name}
+              </p>
+              <p
+                className={`text-sm font-bold flex ${
+                  user.email === review.name ? "justify-end" : ""
+                }`}
+              >
+                {review.review}
+              </p>
+              {/* <p>{review.rating}</p> */}
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+
+      {user.email && (
+        <div className="mt-4">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              {...register("review", { required: true })}
+              className="border border-[#111827]/30 rounded w-full h-auto outline-none px-3 py-1"
+              placeholder="type your review here..."
+            ></textarea>
+
+            <button
+              type="submit"
+              className="bg-[#1ABC9C]/70 hover:bg-[#1ABC9C] text-black hover:text-white py-1 rounded-md w-full"
+            >
+              Submit Review
+            </button>
+          </form>
         </div>
       )}
 
