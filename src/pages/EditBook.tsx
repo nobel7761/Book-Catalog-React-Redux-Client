@@ -86,12 +86,8 @@ const EditBook = () => {
     }
   };
 
-  let book;
-
-  if (id) {
-    const { data } = useGetSingleBookQuery(id);
-    book = data?.data;
-  }
+  const { data } = useGetSingleBookQuery(id);
+  const book = data?.data;
 
   return (
     <div>
@@ -103,8 +99,8 @@ const EditBook = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="w-3/4 mx-auto flex justify-between gap-x-4 pb-8"
       >
-        <img src={book?.image_link} alt={book?.title} className="w-8/12" />
-        <div className="flex flex-col space-y-4 w-full">
+        <img src={book?.image_link} alt={book?.title} className="w-4/12" />
+        <div className="flex flex-col space-y-4 w-8/12">
           <div className="flex justify-between">
             <label className="text-2xl font-semibold">Title</label>
             <input
