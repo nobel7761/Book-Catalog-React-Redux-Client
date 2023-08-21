@@ -35,7 +35,7 @@ const AllBooks = () => {
 
   const { data, isLoading } = useGetBooksQuery(url, {
     refetchOnMountOrArgChange: true,
-    pollingInterval: 1000,
+    // pollingInterval: 1000,
   });
 
   const genreList = Array.from(

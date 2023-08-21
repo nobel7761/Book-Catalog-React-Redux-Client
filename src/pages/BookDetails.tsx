@@ -15,6 +15,10 @@ import { IBook, IReview } from "./AllBooks";
 import DeleteModal from "../components/shared/DeleteModal";
 import { toast } from "react-toastify";
 import { SubmitHandler, useForm } from "react-hook-form";
+import WishList from "../components/shared/WishList";
+import ReadSoon from "../components/shared/ReadSoon";
+import ReadFuture from "../components/shared/ReadFuture";
+import FinishReading from "../components/shared/FinishReading";
 
 interface Inputs {
   review: string;
@@ -40,7 +44,7 @@ const BookDetails = () => {
 
   const { data } = useGetSingleBookQuery(id, {
     refetchOnMountOrArgChange: true,
-    pollingInterval: 1000,
+    // pollingInterval: 1000,
   });
 
   const [deleteBook, { isSuccess, isError }] = useDeleteBookMutation();
@@ -106,7 +110,6 @@ const BookDetails = () => {
     };
 
     postReview(options);
-    console.log("review", options);
 
     if (ReviewSuccess) {
       toast.success("Review Posted Successfully", {
@@ -143,55 +146,70 @@ const BookDetails = () => {
           alt={data?.data?.title}
           className="w-1/4"
         />
-        <div className="w-full">
-          <div className="w-full flex justify-between items-center">
-            <p className="text-[#1ABC9C] underline text-5xl pb-8 flex justify-end uppercase font-bold">
-              {data?.data?.title}
-            </p>
-            <div className="flex justify-between gap-x-2 items-center">
-              {user.email === data?.data?.user.email && (
-                <>
-                  <Link to={`/edit-book/${data?.data?._id}`}>
-                    <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
-                  </Link>
-                  <MdDelete
-                    className="text-5xl hover:text-red-500 cursor-pointer"
-                    onClick={() => handleAction(data?.data)}
-                  />
-                </>
-              )}
+        <div className="w-3/4 flex flex-col justify-between">
+          <div>
+            <div className="flex justify-between items-center">
+              <p className="text-[#1ABC9C] underline text-5xl pb-8 flex justify-end uppercase font-bold">
+                {data?.data?.title}
+              </p>
+              <div className="flex gap-x-2 items-center justify-between">
+                <div className="flex justify-between gap-x-2 items-center">
+                  {user.email === data?.data?.user.email && (
+                    <>
+                      <Link to={`/edit-book/${data?.data?._id}`}>
+                        <FiEdit className="text-5xl hover:text-[#1ABC9C]" />
+                      </Link>
+                      <MdDelete
+                        className="text-5xl hover:text-red-500 cursor-pointer"
+                        onClick={() => handleAction(data?.data)}
+                      />
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-y-4">
+              <p className="font-bold text-xl">
+                Genre:
+                <span className="font-normal text-base ml-2">
+                  {data?.data?.genre}
+                </span>
+              </p>
+              <p className="font-bold text-xl">
+                Published:
+                <span className="font-normal text-base ml-2">
+                  {moment(data?.data?.publication_date).format("MMMM Do YYYY")}
+                </span>
+              </p>
+              <p className="font-bold text-xl">
+                Total Reviews:
+                <span className="font-normal text-base ml-2">
+                  {data?.data?.reviews.length}
+                </span>
+              </p>
+              <p className="font-bold text-xl">
+                Rating:
+                <span className="font-normal text-base ml-2">
+                  {rating ? rating : "-"}
+                </span>
+              </p>
             </div>
           </div>
 
-          <p className="font-bold text-xl">
-            Genre:
-            <span className="font-normal text-base ml-2">
-              {data?.data?.genre}
-            </span>
-          </p>
+          <div className="flex justify-between">
+            <div className="flex gap-x-2 items-end">
+              {user.email && (
+                <>
+                  <WishList />
+                  <ReadSoon />
+                  <ReadFuture />
+                  <FinishReading />
+                </>
+              )}
+            </div>
 
-          <p className="font-bold text-xl">
-            Published:
-            <span className="font-normal text-base ml-2">
-              {moment(data?.data?.publication_date).format("MMMM Do YYYY")}
-            </span>
-          </p>
-          <p className="font-bold text-xl">
-            Total Reviews:
-            <span className="font-normal text-base ml-2">
-              {data?.data?.reviews.length}
-            </span>
-          </p>
-
-          <p className="font-bold text-xl">
-            Rating:
-            <span className="font-normal text-base ml-2">
-              {rating ? rating : "-"}
-            </span>
-          </p>
-
-          <div className="flex justify-end">
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center">
               <p className="text-gray-500 uppercase font-bold text-base">
                 Author
               </p>
@@ -212,8 +230,8 @@ const BookDetails = () => {
           <div
             key={index}
             className={`flex gap-x-2 items-center pb-6 border-b border-black ${
-              user.email === review.name ? "justify-end" : "justify-start"
-            }`}
+              index % 2 === 0 ? "bg-gray-500/10" : "bg-gray-500/40"
+            } ${user.email === review.name ? "justify-end" : "justify-start"}`}
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
@@ -223,7 +241,11 @@ const BookDetails = () => {
               }`}
             />
             <div>
-              <p className="uppercase font-bold text-[#1ABC9C]">
+              <p
+                className={`uppercase font-bold text-[#1ABC9C] flex ${
+                  user.email === review.name ? "justify-end" : ""
+                }`}
+              >
                 {review.name}
               </p>
               <p
