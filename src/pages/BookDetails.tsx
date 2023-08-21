@@ -241,7 +241,11 @@ const BookDetails = () => {
               }`}
             />
             <div>
-              <p className="uppercase font-bold text-[#1ABC9C]">
+              <p
+                className={`uppercase font-bold text-[#1ABC9C] flex ${
+                  user.email === review.name ? "justify-end" : ""
+                }`}
+              >
                 {review.name}
               </p>
               <p

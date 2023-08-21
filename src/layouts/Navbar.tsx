@@ -12,8 +12,6 @@ const Navbar = () => {
 
   const { data: userData } = useGetSingleUserByEmailQuery(user.email);
 
-  console.log("navbar", userData.data);
-
   const handleLogout = () => {
     sessionStorage.clear();
     dispatch(signOut());
@@ -51,7 +49,7 @@ const Navbar = () => {
           <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
             <div className="flex space-x-4"></div>
             <div className="flex items-center ml-12 gap-x-8">
-              {user.email && (
+              {user?.email && userData && (
                 <div className="flex items-center gap-x-4">
                   <Link to="/wish-list" className="relative">
                     <IoBookOutline className="text-[#1ABC9C] text-3xl" />

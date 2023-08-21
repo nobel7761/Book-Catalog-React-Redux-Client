@@ -2,14 +2,14 @@ import moment from "moment";
 import { IBook } from "../../pages/AllBooks";
 
 const BookCard = ({ book }: { book: IBook }) => {
-  const ratingArray = book.reviews
-    .map(
-      (review: { user: string; rating: number; comment: string }) =>
-        review.rating
-    )
-    .reduce((total: number, value: number) => total + value, 0);
+  // const ratingArray = book.reviews
+  //   .map(
+  //     (review: { user: string; rating: number; comment: string }) =>
+  //       review.rating
+  //   )
+  //   .reduce((total: number, value: number) => total + value, 0);
 
-  const rating = Math.floor(ratingArray / book.reviews.length);
+  // const rating = Math.floor(ratingArray / book.reviews.length);
 
   return (
     <div className="flex w-full rounded-lg border border-[#111827]/10 hover:bg-gray-100">
@@ -18,7 +18,7 @@ const BookCard = ({ book }: { book: IBook }) => {
         src={book.image_link}
         alt={book.title}
       />
-      <div className="w-full flex flex-col justify-between px-4 py-2">
+      <div className="w-3/4 flex flex-col justify-between px-4 py-2">
         <div className="flex flex-col leading-normal">
           <p className="mb-2 uppercase text-3xl font-bold tracking-tight text-gray-900">
             {book.title}
@@ -43,7 +43,7 @@ const BookCard = ({ book }: { book: IBook }) => {
           <p className="font-bold">
             Rating:
             <span className="font-normal text-sm ml-2">
-              {rating ? rating : "-"}
+              {/* {rating ? rating : "-"} */}
             </span>
           </p>
         </div>
