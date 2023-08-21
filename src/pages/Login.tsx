@@ -10,7 +10,7 @@ import {
 } from "../components/shadcn/ui/card";
 import { Input } from "../components/shadcn/ui/input";
 import { Label } from "../components/shadcn/ui/label";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/user/userApi";
 import { toast } from "react-toastify";
 
@@ -20,14 +20,9 @@ interface Inputs {
 }
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
-  const [loginUser, { data, error, isError, isLoading, isSuccess }] =
-    useLoginMutation();
+  const [loginUser, { data, isError, isSuccess }] = useLoginMutation();
 
   const navigate = useNavigate();
 

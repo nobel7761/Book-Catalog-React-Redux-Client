@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { useGetSingleBookQuery } from "../../redux/features/books/booksApi";
 import BookCard from "./BookCard";
+import { IBook } from "../../pages/AllBooks";
 
 const FeaturedComponent = ({ id }: { id: string }) => {
-  const { data, isLoading } = useGetSingleBookQuery(id);
+  const { data, isLoading } = useGetSingleBookQuery(id, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
-  const book = data?.data;
+  const book: IBook = data?.data;
 
   return (
     <div>

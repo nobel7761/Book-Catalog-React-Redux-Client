@@ -7,14 +7,15 @@ const FeaturedPage = () => {
   const { pathname } = useLocation();
   const { user } = useAppSelector((state) => state.user);
 
-  const { data, isLoading } = useGetSingleUserByEmailQuery(user.email);
+  const { data, isLoading } = useGetSingleUserByEmailQuery(user.email, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
   const wishListArray = data?.data?.wishList;
   const readSoonArray = data?.data?.readSoon;
   const readFutureArray = data?.data?.readFuture;
   const finishReadingArray = data?.data?.finishReading;
-
-  console.log("wishListArray", wishListArray);
 
   return (
     <div>

@@ -5,7 +5,10 @@ import { useGetBooksQuery } from "../redux/features/books/booksApi";
 import { IBook } from "./AllBooks";
 
 const Home = () => {
-  const { data, isLoading } = useGetBooksQuery(undefined);
+  const { data, isLoading } = useGetBooksQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
   return (
     <div className="py-8">
       <h1 className="text-[#1ABC9C] underline text-5xl pb-8 text-center uppercase font-bold">

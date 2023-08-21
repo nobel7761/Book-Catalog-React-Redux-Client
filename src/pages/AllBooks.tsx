@@ -33,19 +33,19 @@ const AllBooks = () => {
     selectedGenre !== "" ? `&genre=${selectedGenre}` : ""
   }${selectedYear !== "" ? `&publication_date=${selectedYear}` : ""}`;
 
-  const { data, isLoading } = useGetBooksQuery(url, {
+  const { data: BooksData, isLoading } = useGetBooksQuery(url, {
     refetchOnMountOrArgChange: true,
-    // pollingInterval: 1000,
+    pollingInterval: 1000,
   });
 
   const genreList = Array.from(
-    new Set(data?.data.map((book: IBook) => book.genre))
-  ).sort();
+    new Set(BooksData?.data?.map((book: IBook) => book?.genre))
+  );
   const publication_year = Array.from(
-    new Set(data?.data.map((book: IBook) => book.publication_date.slice(0, 4)))
-  ).sort();
-
-  console.log("sort", publication_year);
+    new Set(
+      BooksData?.data?.map((book: IBook) => book.publication_date.slice(0, 4))
+    )
+  );
 
   const handleChange = (value: string) => {
     setSearchedTerm(value.toLowerCase());
@@ -54,7 +54,7 @@ const AllBooks = () => {
   return (
     <div className="py-8">
       <h1 className="text-[#1ABC9C] underline text-5xl text-center uppercase font-bold">
-        All {data?.data.length} Books
+        All {BooksData?.data.length} Books
       </h1>
 
       {/* search bar */}
@@ -105,13 +105,13 @@ const AllBooks = () => {
 
       {isLoading ? (
         <BookCardSkeleton />
-      ) : data?.data.length === 0 ? (
+      ) : BooksData?.data.length === 0 ? (
         <p className="text-red-500 text-3xl font-bold uppercase text-center">
           No books matched your search criteria.
         </p>
       ) : (
         <div className="grid grid-cols-2 gap-8">
-          {data?.data.map((book: IBook, index: number) => (
+          {BooksData?.data.map((book: IBook, index: number) => (
             <Link to={`/book/${book._id}` as string} key={index}>
               <BookCard book={book} />
             </Link>

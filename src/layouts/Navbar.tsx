@@ -10,7 +10,10 @@ const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
-  const { data: userData } = useGetSingleUserByEmailQuery(user.email);
+  const { data: userData } = useGetSingleUserByEmailQuery(user.email, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 1000,
+  });
 
   const handleLogout = () => {
     sessionStorage.clear();

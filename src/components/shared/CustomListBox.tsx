@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "lucide-react";
 import { Fragment } from "react";
@@ -7,9 +8,9 @@ const CustomListBox = ({
   selected,
   setSelected,
 }: {
-  data: string[];
+  data: any;
   selected: string;
-  setSelected: () => void;
+  setSelected: (value: string) => void;
 }) => {
   return (
     <div className="w-full border-2 border-gray-300 rounded">

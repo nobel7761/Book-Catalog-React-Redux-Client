@@ -64,7 +64,9 @@ const BookDetails = () => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    deleteBook(selectedBook._id);
+    if (selectedBook) {
+      deleteBook(selectedBook._id);
+    }
 
     if (isSuccess) {
       navigate("/all-books");
